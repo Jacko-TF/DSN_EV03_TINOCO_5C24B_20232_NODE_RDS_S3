@@ -7,7 +7,8 @@
     "babel-node": "babel-node --presets=@babel/preset-env",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec npm run babel-node app.js",
-    "prueba": "nodemon --exec npm run babel-node prueba.js"
+    "prueba": "nodemon --exec npm run babel-node prueba.js",
+    "start": "npm run babel-node app.js"
   },
   "keywords": [],
   "author": "",
