@@ -1,0 +1,33 @@
+{
+  "name": "dsn_ev03_2023_2_node_rds_s3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=@babel/preset-env",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec npm run babel-node app.js",
+    "prueba": "nodemon --exec npm run babel-node prueba.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.23.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.451.0",
+    "@aws-sdk/s3-request-presigner": "^3.451.0",
+    "aws-sdk": "^2.1497.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "promise-mysql": "^5.2.0"
+  }
+}

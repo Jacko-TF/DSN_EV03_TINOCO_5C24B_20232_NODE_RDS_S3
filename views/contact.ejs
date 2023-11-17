@@ -1,0 +1,64 @@
+<%- include('template/header', {tituloweb: 'Inicio EJS'}); %>
+
+<div class="container" style="padding-top: 25px;">
+  <div class="row">   
+    <div class="col-12 col-md-4" style="padding-top: 25px;">
+      <h3>Contactos</h3>
+      <form action ="/api/contact" method="POST" enctype="multipart/form-data" style="padding-top: 10px;">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Apellido</label>
+          <input type="text" class="form-control" id="apellido" name="apellido" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Correo</label>
+          <input type="email" class="form-control" id="correo" name="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Fecha Nacimiento</label>
+          <input type="date" class="form-control" id="fecha_nac" name="fecha_nac" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Foto</label>
+          <input type="file" accept="image/png, image/jpeg" class="form-control" id="file" name="file" required>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10" style="padding-top: 10px;">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <div class="col-md-8">
+      <h3><%= listContacts %></h3>
+
+      <div class="row">
+        <% if (arrayContacts.length > 0) { %>
+          <% arrayContacts.forEach(contacto => { %>
+          <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                  <img src="<%= contacto.foto %>" class="card-img-top" alt="Foto de <%= contacto.nombre %>">
+                  <div class="card-body">
+                      <h4 class="card-title"><%= contacto.nombre %> - <%= contacto.apellido %></h4>
+                      <p class="card-text">Correo: <%= contacto.correo %></p>
+                      <p class="card-text">Fecha de Nacimiento: <%= contacto.fecha_nac.getDate() %>/<%= contacto.fecha_nac.getMonth() %>/<%= contacto.fecha_nac.getFullYear() %></p>
+                      <div class="div" style="display: flex; align-items: center; justify-content: center; text-align: center;">
+                          <a href="/api/contact/<%= contacto.id %>" class="btn btn-info" style="margin: 10px;">Editar</a>
+                          <form action="/api/contact/delete/<%= contacto.id %>" method="POST">
+                            <button type="submit" class="btn btn-danger" style="margin: 10px;">Eliminar</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <% }) %>
+          <% } %>
+      </div>
+  </div>
+</div>
+
+<%- include('template/footer'); %>
