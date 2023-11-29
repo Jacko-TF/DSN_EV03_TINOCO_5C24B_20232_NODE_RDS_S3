@@ -77,7 +77,7 @@
           - DATABASE=
           - USER=
           - PASSWORD=
-          -DATABASE_PORT=
+          - DATABASE_PORT=
           - MY_ACCESS_KEY_ID=
           - MY_SECRET_ACCESS_KEY=
           - S3_REGION=
